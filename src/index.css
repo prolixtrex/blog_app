@@ -1,13 +1,289 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    width: 100%;
+}
+
+.App {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    background-color: rgba(95, 158, 160, 0.4);
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    min-height: 50px;
+    background-color: rgb(127, 229, 255);
+    font-size: 30px;
+    padding: 5px 10px;
+}
+
+.nav {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 10px;
+    background-color: black;
+    font-size: x-large;
+}
+
+.nav form {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 5px;
+}
+
+.nav form label {
+    position: absolute;
+    left: -99999px;
+}
+
+.nav form input {
+    width: 100%;
+    border-radius: 5px;
+    font-size: large;
+    padding: 5px;
+}
+
+.nav form input:focus {
+    outline: none;
+}
+
+.nav ul {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    margin: 5px;
+}
+
+.nav ul a {
+    color: rgb(95, 158, 160);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav ul a:hover {
+    color: rgb(127, 229, 255);
+}
+
+.home,
+.newpost,
+.about,
+.postPage {
+    flex-grow: 1;
+    margin: 5px 10px;
+    overflow-y: auto;
+}
+
+.home .post {
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+    line-height: 1.5;
+}
+
+.home .post a {
+    color: rgb(48, 71, 139);
+}
+
+.home .post .postTitle {
+    font-size: 1.5rem;
+}
+
+.home .post .postDate {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.home .post .postBody {
+    font-size: 1.3rem;
+}
+
+.footer {
+    width: 100%;
+    height: 35px;
+    min-height: 35px;
+    background-color: rgb(127, 229, 255);
+    display: grid;
+    place-content: center;
+    font-size: 1.5rem;
+    margin: 0 5px;
+}
+
+.newpost h2 {
+    text-align: center;
+}
+
+.newpost form {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.newpost form label {
+    font-size: large;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.newpost form input {
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: large;
+    padding-left: 5px;
+}
+
+.newpost form textarea {
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: large;
+    padding: 5px;
+}
+
+.newpost form button {
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-top: 5px;
+    background-color: rgb(30, 144, 148);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.about h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.2rem;
+}
+
+.postPage .postTitle {
+    font-size: 2rem;
+}
+
+.postPage .postDate {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+}
+
+.postPage .postBody {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.postPage article form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.postPage button {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: large;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.postPage .editButton {
+    background-color: rgb(30, 144, 148);
+}
+
+.postPage .deleteButton {
+    background-color: rgb(224, 8, 8);
+}
+
+.confirmDelete {
+    width: calc(100% - 20px);
+    max-width: calc(500px - 20px);
+    height: calc(100vh - 125px);
+    position: absolute;
+    z-index: 1;
+    top: 90px;
+    background-color: rgba(30, 144, 148, 0.5);
+}
+
+.confirmDelete .confirmBox {
+    width: 80%;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 20% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(127, 229, 255);
+}
+
+.confirmDelete .confirmBox p {
+    height: 40%;
+    width: 100%;
+    margin-top: 15%;
+    padding: 0 5px;
+    display: grid;
+    place-content: center;
+    background-color: rgb(30, 144, 148);
+    font-size: larger;
+}
+
+.confirmDelete .confirmBox form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmDelete .confirmBox form button {
+    margin-bottom: 10px;
 }
